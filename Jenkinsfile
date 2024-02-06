@@ -16,7 +16,7 @@ pipeline {
                     // Change directory and execute Katalon command using sh step
                     sh '''
                         cd '/Applications/Katalon Studio Engine.app/Contents/MacOS'
-                        ./katalonc -noSplash -runMode=console -projectPath="/Users/mohit/Katalon Studio/katalon-seleniumgrid-sample/katalon-seleniumgrid-sample.prj" -retry=0 -testSuitePath="${testSuitePath}" -browserType="${browserName}" -executionProfile="${executionProfile}" -apiKey="6067c065-a8eb-44c1-b724-e1851ab5fe0e" -orgID=200326 --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=true
+                        ./katalonc -noSplash -runMode=console -projectPath="/Users/mohit/Katalon Studio/katalon-seleniumgrid-sample/katalon-seleniumgrid-sample.prj" -retry=0 -testSuitePath="${testSuitePath}" -browserType="${browserName}" -executionProfile="${executionProfile}" -apiKey="${apiKey}" -orgID=${orgID} --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=true
                     '''
                 }
             }
