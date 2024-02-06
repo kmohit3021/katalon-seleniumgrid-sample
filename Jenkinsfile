@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'browserName', defaultValue: '', description: 'Enter your browser name')
+        string(name: 'browserName', defaultValue: 'Remote', description: 'Enter your browser name')
         choice(name: 'executionProfile', choices: ['default', 'qa', 'prod'], description: 'Select your environment profile')
-        string(name: 'testSuitePath', defaultValue: '', description: 'Enter your test suite path')
+        string(name: 'testSuitePath', defaultValue: 'Test Suites/TS001_Web', description: 'Enter your test suite path')
     }
     stages {
         stage('Example') {
