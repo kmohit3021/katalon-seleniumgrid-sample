@@ -3,6 +3,7 @@ pipeline {
     parameters {
         string(name: 'browserName', defaultValue: '', description: 'Enter browser name')
         string(name: 'testSuitePath', defaultValue: '', description: 'Enter test suite path')
+        choice(name: 'executionProfile', choices: ['default', 'qa', 'prod'], description: 'Select your environment profile')
         string(name: 'executionProfile', defaultValue: '', description: 'Enter execution profile')
     }
     stages {
@@ -15,7 +16,7 @@ pipeline {
 
                     // Change directory and execute Katalon command using sh step
                     sh '''
-                        cd /Applications/KatalonStudioEngine.app/Contents/MacOS
+                        cd /Applications/Katalon\ Studio\ Engine.app/Contents/MacOS
                         ./katalonc -noSplash -runMode=console -projectPath="/Users/mohit/Katalon Studio/katalon-seleniumgrid-sample/katalon-seleniumgrid-sample.prj" -retry=0 -testSuitePath="${testSuitePath}" -browserType="${browserName}" -executionProfile="${executionProfile}" -apiKey="6067c065-a8eb-44c1-b724-e1851ab5fe0e" -orgID=200326 --config -proxy.auth.option=NO_PROXY -proxy.system.option=NO_PROXY -proxy.system.applyToDesiredCapabilities=true -webui.autoUpdateDrivers=true
                     '''
                 }
